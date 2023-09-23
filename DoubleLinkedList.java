@@ -117,6 +117,12 @@ public class DoubleLinkedList{
 	}
 
 	public void deleteDLL(){
+		DoubleNode temp = head;
+		while(temp != tail){
+			tail.prev = null;
+			tail = tail.next;
+		}
+		head.next = null;
 		head = null;
 		tail = null;
 		size = 0;
