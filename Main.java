@@ -1,17 +1,22 @@
 public class Main {
   public static void main(String[] args) {
-		CircularSingleLinkedList csll = new CircularSingleLinkedList();
-		csll.create(5);
-		csll.insert(6,1);
-		csll.insert(7,3);
-		csll.insert(8,3);
-		csll.insert(9,0);
-		csll.traverse();
-		csll.search(8);
-		csll.search(10);
-		csll.delete(3);
-		csll.traverse();
-		csll.deleteCSLL();
-		csll.traverse();
+		DoubleLinkedList dll = new DoubleLinkedList();
+		dll.create(1);
+		dll.insert(2,0);
+		dll.insert(3,1);
+		dll.insert(4,10);
+		dll.insert(0,0);
+		dll.insert(0,4);
+		dll.insert(0,10);
+		dll.traverse();
+		// dll.reverseTraverse();
+		// dll.search(1);
+		// dll.search(10);
+		dll.delete(10);
+		dll.traverse();
+		dll.delete(4);
+		dll.traverse();
+		dll.delete(0);
+		dll.traverse();
   }
 }
