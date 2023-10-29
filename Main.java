@@ -1,18 +1,15 @@
 public class Main {
   public static void main(String[] args) {
-    TreeNode drinks = new TreeNode("Drinks");
-    TreeNode hot = new TreeNode("Hot");
-    TreeNode cold = new TreeNode("Cold");
-    TreeNode tea = new TreeNode("Tea");
-    TreeNode coffee = new TreeNode("Coffee");
-    TreeNode wine = new TreeNode("Wine");
-    TreeNode beer = new TreeNode("Beer");
-    drinks.addChild(hot);
-    drinks.addChild(cold);
-    hot.addChild(tea);
-    hot.addChild(coffee);
-    cold.addChild(wine);
-    cold.addChild(beer);
-    System.out.println(drinks.print(0));
+    BinaryTreeLL tree = new BinaryTreeLL();
+    tree.insert("N1");
+    tree.insert("N2");
+    tree.insert("N3");
+    tree.insert("N4");
+    tree.insert("N5");
+    tree.insert("N6");
+    tree.levelOrder();
+    tree.delete("N6");
+    tree.levelOrder();
+    tree.deleteTree();
   }
 }
