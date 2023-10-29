@@ -1,9 +1,18 @@
 public class Main {
   public static void main(String[] args) {
-    System.out.println(Recursion.fibonacci(3));
-    System.out.println(Recursion.sumOfDigits(101234));
-    System.out.println(Recursion.power(10,5));
-    System.out.println(Recursion.gcd(100,10));
-    System.out.println(Recursion.decimalToBinary(-13));
+    TreeNode drinks = new TreeNode("Drinks");
+    TreeNode hot = new TreeNode("Hot");
+    TreeNode cold = new TreeNode("Cold");
+    TreeNode tea = new TreeNode("Tea");
+    TreeNode coffee = new TreeNode("Coffee");
+    TreeNode wine = new TreeNode("Wine");
+    TreeNode beer = new TreeNode("Beer");
+    drinks.addChild(hot);
+    drinks.addChild(cold);
+    hot.addChild(tea);
+    hot.addChild(coffee);
+    cold.addChild(wine);
+    cold.addChild(beer);
+    System.out.println(drinks.print(0));
   }
 }
