@@ -1,10 +1,12 @@
 public class BinaryNode {
-    public String value;
+    public int value;
     public BinaryNode left;
     public BinaryNode right;
     public int height;
     public BinaryNode(){}
-    public BinaryNode(String value){
+    public BinaryNode(int value){
         this.value=value;
+        left = null;
+        right = null;
     }
 }

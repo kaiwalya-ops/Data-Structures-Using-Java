@@ -53,7 +53,7 @@ public class BinaryTreeLL {
             System.out.println();
     }
     
-    public void search(String value){
+    public void search(int value){
         Queue<BinaryNode> queue = new LinkedList<>();
         queue.add(root);
         while(!queue.isEmpty()){
@@ -70,7 +70,7 @@ public class BinaryTreeLL {
         System.out.println("The element is not found");
     }
 
-    public void insert(String value){
+    public void insert(int value){
         BinaryNode node = new BinaryNode(value);
         if(root == null){
             root = node;
@@ -99,27 +99,35 @@ public class BinaryTreeLL {
     private BinaryNode getDeleteDeepestNode(){
         Queue<BinaryNode> queue = new LinkedList<>();
         queue.add(root);
-        BinaryNode prev,curr = null;
+        BinaryNode ans,curr = null;
         while(!queue.isEmpty()){
-            prev = curr;
             curr = queue.remove();
-            if(curr.left == null){
-                prev.right = null;
-                break;
-            }
-            if(curr.right == null){
-                prev = curr.left;
-                curr.left = null;
-                curr = prev;
-                break;
-            }
-            queue.add(curr.left);
+            if(curr.left != null)
+                queue.add(curr.left);
+            if(curr.right != null)
             queue.add(curr.right);
         }
-        return curr;
+        ans = curr;
+        queue.add(root);
+        while(!queue.isEmpty()){
+            curr = queue.remove();
+            if(curr.left == ans){
+                curr.left = null;
+                break;
+            }
+            if(curr.right == ans){
+                curr.right = null;
+                break;
+            }
+            if(curr.left != null)
+                queue.add(curr.left);
+            if(curr.right != null)
+                queue.add(curr.right);
+        }
+        return ans;
     }
 
-    public void delete(String value){
+    public void delete(int value){
         Queue<BinaryNode> queue = new LinkedList<>();
         queue.add(root);
         while(!queue.isEmpty()){

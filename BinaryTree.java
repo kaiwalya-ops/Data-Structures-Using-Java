@@ -1,9 +1,9 @@
 public class BinaryTree {
-    String[] arr;
+    int[] arr;
     int lastUsedIndex;
 
     public BinaryTree(int size){
-        arr = new String[size+1];
+        arr = new int[size+1];
         this.lastUsedIndex = 0;
         System.out.println("Tree has been created of size "+size);
     }
@@ -13,7 +13,7 @@ public class BinaryTree {
         return false;
     }
 
-    public void insert(String value){
+    public void insert(int value){
         if(!isFull()){
             arr[lastUsedIndex+1] = value;
             lastUsedIndex++;
@@ -62,7 +62,7 @@ public class BinaryTree {
         System.out.println();
     }
 
-    public int search(String value){
+    public int search(int value){
         for(int i=1;i<=lastUsedIndex;i++)
             if(arr[i]==value){
                 System.out.println("Value exists at "+i);
@@ -72,7 +72,7 @@ public class BinaryTree {
         return -1;
     }
 
-    public void delete(String value){
+    public void delete(int value){
         int index = search(value);
         if(index == -1)
             return;
