@@ -1,22 +1,13 @@
 public class Main {
   public static void main(String[] args) {
-    BinarySearchTree tree = new BinarySearchTree();
-    tree.insert(70);
-    tree.insert(50);
-    tree.insert(90);
-    tree.insert(30);
-    tree.insert(60);
-    tree.insert(80);
-    tree.insert(100);
+    AVLTree tree = new AVLTree();
+    tree.insert(5);
+    tree.insert(10);
+    tree.insert(15);
     tree.insert(20);
-    tree.insert(40);
-    tree.preOrder();
-    tree.inOrder();
-    tree.postOrder();
     tree.levelOrder();
-    tree.delete(90);
+    tree.delete(5);
     tree.levelOrder();
-    tree.search(100);
-    tree.deleteBST();
+    tree.deleteAVL();
   }
 }

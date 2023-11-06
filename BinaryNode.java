@@ -3,10 +3,15 @@ public class BinaryNode {
     public BinaryNode left;
     public BinaryNode right;
     public int height;
-    public BinaryNode(){}
+    public BinaryNode(){
+        this.left = null;
+        this.right = null;
+        this.height = 0;
+    }
     public BinaryNode(int value){
         this.value=value;
-        left = null;
-        right = null;
+        this.left = null;
+        this.right = null;
+        this.height = 1;
     }
 }
