@@ -1,10 +1,15 @@
 public class Main {
   public static void main(String[] args) {
-    Trie trie = new Trie();
-    trie.insert("Api");
-    trie.insert("Apis");
-    trie.search("Api");
-    trie.delete("Api");
-    trie.search("Api");
+    DirectChaining directChaining = new DirectChaining(13);
+    directChaining.insert("The");
+    directChaining.insert("quick");
+    directChaining.insert("brown");
+    directChaining.insert("fox");
+    directChaining.insert("over");
+    directChaining.display();
+    directChaining.search("fox");
+    directChaining.delete("fox");
+    directChaining.search("fox");
+    directChaining.display();
   }
 }
