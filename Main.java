@@ -1,15 +1,15 @@
 public class Main {
   public static void main(String[] args) {
-    DirectChaining directChaining = new DirectChaining(13);
-    directChaining.insert("The");
-    directChaining.insert("quick");
-    directChaining.insert("brown");
-    directChaining.insert("fox");
-    directChaining.insert("over");
-    directChaining.display();
-    directChaining.search("fox");
-    directChaining.delete("fox");
-    directChaining.search("fox");
-    directChaining.display();
+    LinearProbing linearProbing = new LinearProbing(13);
+    linearProbing.insert("The");
+    linearProbing.insert("quick");
+    linearProbing.insert("brown");
+    linearProbing.insert("fox");
+    linearProbing.insert("over");
+    linearProbing.display();
+    linearProbing.search("fox");
+    linearProbing.delete("fox");
+    linearProbing.search("fox");
+    linearProbing.display();
   }
 }
