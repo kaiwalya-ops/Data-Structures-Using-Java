@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-public class QuadraticProbing {
+public class DoubleHashing {
     String[] hashTable;
     int userCellNumber;
 
-    QuadraticProbing(int size){
+    DoubleHashing(int size){
         hashTable = new String[size];
         userCellNumber = 0;
     }
@@ -15,6 +15,27 @@ public class QuadraticProbing {
             sum+=ch[i];
         }
         return sum%M;
+    }
+
+    private int sumOfDigits(int sum){
+        int value = 0;
+        while(sum > 0){
+            value = sum % 10;
+            sum /= 10;
+        }
+        return value;
+    }
+
+    private int secondHashFunction(String word,int M){
+        char ch[] = word.toCharArray();
+        int i,sum=0;
+        for(i=0;i<word.length();i++){
+            sum += ch[i];
+        }
+        while(sum>hashTable.length){
+            sum = sumOfDigits(sum);
+        }
+        return sum % M;
     }
 
     private double getLoadFactor(){
@@ -41,9 +62,10 @@ public class QuadraticProbing {
             rehash(word);
             return;
         }
-        int startIndex = modASCIIHashFunction(word,hashTable.length);
-        for(int i=startIndex, counter=0;i<startIndex+hashTable.length;i++,counter++){
-            int index = (startIndex + (counter*counter)) % hashTable.length;
+        int x = modASCIIHashFunction(word,hashTable.length);
+        int y = secondHashFunction(word,hashTable.length);
+        for(int i=0;i<hashTable.length;i++){
+            int index = (x + i*y) % hashTable.length;
             if(hashTable[index] == null) {
                 hashTable[index] = word;
                 System.out.println("The word "+word+" is successfully inserted at "+index);

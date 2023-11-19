@@ -39,7 +39,6 @@ public class LinearProbing {
         double loadFactor = getLoadFactor();
         if(loadFactor >= 0.75) {
             rehash(word);
-            userCellNumber++;
             return;
         }
         int startIndex = modASCIIHashFunction(word,hashTable.length);

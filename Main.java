@@ -1,6 +1,6 @@
 public class Main {
   public static void main(String[] args) {
-    QuadraticProbing quadraticProbing = new QuadraticProbing(13);
+    DoubleHashing quadraticProbing = new DoubleHashing(13);
     quadraticProbing.insert("The");
     quadraticProbing.insert("quick");
     quadraticProbing.insert("brown");
