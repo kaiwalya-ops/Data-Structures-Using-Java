@@ -1,15 +1,16 @@
 public class Main {
   public static void main(String[] args) {
-    LinearProbing linearProbing = new LinearProbing(13);
-    linearProbing.insert("The");
-    linearProbing.insert("quick");
-    linearProbing.insert("brown");
-    linearProbing.insert("fox");
-    linearProbing.insert("over");
-    linearProbing.display();
-    linearProbing.search("fox");
-    linearProbing.delete("fox");
-    linearProbing.search("fox");
-    linearProbing.display();
+    QuadraticProbing quadraticProbing = new QuadraticProbing(13);
+    quadraticProbing.insert("The");
+    quadraticProbing.insert("quick");
+    quadraticProbing.insert("brown");
+    quadraticProbing.insert("fox");
+    quadraticProbing.insert("over");
+    quadraticProbing.insert("lazy");
+    quadraticProbing.display();
+    quadraticProbing.search("fox");
+    quadraticProbing.delete("fox");
+    quadraticProbing.search("fox");
+    quadraticProbing.display();
   }
 }
