@@ -1,14 +1,11 @@
 public class Main {
   public static void main(String[] args) {
-    Sort sort = new Sort();
-    int arr[] = {10,5,30,15,50,6};
-    sort.print(arr);
-    sort.bubbleSort(arr.clone());
-    sort.selectionSort(arr.clone());
-    sort.insertionSort(arr.clone());
-    sort.bucketSort(arr.clone());
-    sort.mergeSort(arr.clone());
-    sort.quickSort(arr.clone());
-    sort.heapSort(arr.clone());
+    int arr[] = {1,2,3,4,5,6,7,8,9,10};
+    Search search = new Search();
+    search.linearSearch(arr,5);
+    search.linearSearch(arr,11);
+
+    search.binarySearch(arr,5);
+    search.binarySearch(arr,11);
   }
 }
