@@ -13,6 +13,10 @@ public class GraphAL{
         nodeList.get(j).neighbors.add(nodeList.get(i));
     }
 
+    public void addDirectedEdge(int i, int j){
+        nodeList.get(i).neighbors.add(nodeList.get(j));
+    }
+
     public String toString(){
         StringBuilder s = new StringBuilder();
         for (int i=0;i<nodeList.size();i++){
@@ -22,7 +26,6 @@ public class GraphAL{
             s.append("\n");
         }
         return s.toString();
-        
     }
 
     private void bfsVisit(GraphNodeAL node){
@@ -65,6 +68,25 @@ public class GraphAL{
         for(GraphNodeAL node: nodeList)
             if(!node.isVisited)
                 dfsVisit(node);
+        System.out.println();
+    }
+
+    private void topologicalSort(GraphNodeAL curr, LinkedList<GraphNodeAL> stack){
+        for(GraphNodeAL node: curr.neighbors)
+            if(!node.isVisited)
+                topologicalSort(node,stack);
+        curr.isVisited = true;
+        stack.push(curr);
+    }
+    public void topologicalSort(){
+        LinkedList<GraphNodeAL> stack = new LinkedList<>();
+        for(GraphNodeAL node:nodeList)
+            if(!node.isVisited)
+                topologicalSort(node,stack);
+        System.out.println();
+
+        while(!stack.isEmpty())
+            System.out.print(stack.pop().name+" ");
         System.out.println();
     }
 }

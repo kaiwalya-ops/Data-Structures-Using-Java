@@ -14,6 +14,9 @@ public class GraphAM {
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
+    public void addDirectedEdge(int i,int j){
+        adjMat[i][j] = 1;
+    }
 
     public String toString(){
         StringBuilder s = new StringBuilder();
@@ -85,6 +88,24 @@ public class GraphAM {
         for(GraphNodeAM node: nodeList)
             if(!node.isVisited)
                 dfsVisit(node);
+        System.out.println();
+    }
+
+    private void topologicalSort(GraphNodeAM curr, LinkedList<GraphNodeAM> stack){
+        for(int i=0;i<adjMat[curr.index].length;i++)
+            if(adjMat[curr.index][i] == 1 && !nodeList.get(i).isVisited)
+                topologicalSort(nodeList.get(i),stack);
+        stack.push(curr);
+        curr.isVisited = true;
+    }
+    public void topologicalSort(){
+        LinkedList<GraphNodeAM> stack = new LinkedList<GraphNodeAM>();
+        for(GraphNodeAM node: nodeList)
+            if(!node.isVisited)
+                topologicalSort(node, stack);
+        
+        while(!stack.isEmpty())
+            System.out.print(stack.pop().name+" ");
         System.out.println();
     }
 }
