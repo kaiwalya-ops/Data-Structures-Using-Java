@@ -4,6 +4,7 @@ public class GraphNodeAL {
     public String name;
     public int index;
     public boolean isVisited;
+    public GraphNodeAL parent;
 
     public ArrayList<GraphNodeAL> neighbors;
 

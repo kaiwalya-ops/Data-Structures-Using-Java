@@ -2,6 +2,7 @@ public class GraphNodeAM {
     public String name;
     public int index;
     boolean isVisited;
+    public GraphNodeAM parent;
 
     public GraphNodeAM(String name, int index){
         this.name = name;

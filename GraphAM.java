@@ -65,6 +65,9 @@ public class GraphAM {
             if(!node.isVisited)
                 bfsVisit(node);
         System.out.println();
+
+        for(GraphNodeAM node: nodeList)
+            node.isVisited = false;
     }
 
     // DFS Internal
@@ -89,6 +92,9 @@ public class GraphAM {
             if(!node.isVisited)
                 dfsVisit(node);
         System.out.println();
+
+        for(GraphNodeAM node: nodeList)
+            node.isVisited=false;
     }
 
     private void topologicalSort(GraphNodeAM curr, LinkedList<GraphNodeAM> stack){
@@ -107,5 +113,36 @@ public class GraphAM {
         while(!stack.isEmpty())
             System.out.print(stack.pop().name+" ");
         System.out.println();
+
+        for(GraphNodeAM node: nodeList)
+            node.isVisited = false;
+    }
+
+    public static void pathPrint(GraphNodeAM node){
+        if(node.parent != null)
+            pathPrint(node.parent);
+        System.out.print(node.name+" ");
+    }
+    public void BFSforSSSP(GraphNodeAM node){
+        LinkedList<GraphNodeAM> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()){
+            GraphNodeAM curr = queue.remove(0);
+            curr.isVisited = true;
+            System.out.println("Printing path for node "+curr.name+": ");
+            pathPrint(curr);
+            System.out.println();
+            for(int i=0;i<adjMat[curr.index].length;i++)
+                if(adjMat[curr.index][i] == 1 && !nodeList.get(i).isVisited){
+                    GraphNodeAM neighbor = nodeList.get(i);
+                    neighbor.parent = curr;
+                    neighbor.isVisited = true;
+                    queue.add(neighbor);
+                }
+        }
+
+        for(GraphNodeAM curr: nodeList)
+            curr.isVisited = false;
+
     }
 }
