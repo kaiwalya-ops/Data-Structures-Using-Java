@@ -2,29 +2,26 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
-    ArrayList<GraphNodeAM> nodeList = new ArrayList<>();
-    nodeList.add(new GraphNodeAM("A", 0));
-    nodeList.add(new GraphNodeAM("B", 1));
-    nodeList.add(new GraphNodeAM("C", 2));
-    nodeList.add(new GraphNodeAM("D", 3));
-    nodeList.add(new GraphNodeAM("E", 4));
-    nodeList.add(new GraphNodeAM("F", 5));
-    nodeList.add(new GraphNodeAM("G", 6));
-    GraphAM graph = new GraphAM(nodeList);
-    graph.addUndirectedEdge(0, 1);
-    graph.addUndirectedEdge(0, 2);
-    graph.addUndirectedEdge(1, 3);
-    graph.addUndirectedEdge(1, 6);
-    graph.addUndirectedEdge(2, 3);
-    graph.addUndirectedEdge(2, 4);
-    graph.addUndirectedEdge(3, 5);
-    graph.addUndirectedEdge(4, 5);
-    graph.addUndirectedEdge(5, 6);
-    System.out.println(graph.toString()); 
-    graph.dfs();
-    graph.bfs();
-    //Only for directed edges
-    // graph.topologicalSort(); 
-    graph.BFSforSSSP(nodeList.get(0));
+    ArrayList<WeightedGraphNode> nodeList = new ArrayList<>();
+    nodeList.add(new WeightedGraphNode("A"));
+    nodeList.add(new WeightedGraphNode("B"));
+    nodeList.add(new WeightedGraphNode("C"));
+    nodeList.add(new WeightedGraphNode("D"));
+    nodeList.add(new WeightedGraphNode("E"));
+    nodeList.add(new WeightedGraphNode("F"));
+    nodeList.add(new WeightedGraphNode("G"));
+    WeightedGraph graph = new WeightedGraph(nodeList);
+    graph.addWeightedDirectedEdge(0,1,2);
+    graph.addWeightedDirectedEdge(0,2,5);
+    graph.addWeightedDirectedEdge(1,2,6);
+    graph.addWeightedDirectedEdge(1,3,1);
+    graph.addWeightedDirectedEdge(1,4,3);
+    graph.addWeightedDirectedEdge(2,5,8);
+    graph.addWeightedDirectedEdge(3,4,4);
+    graph.addWeightedDirectedEdge(4,6,9);
+    graph.addWeightedDirectedEdge(5,6,7);
+
+    System.out.println("Printing Dijkstra from source A");
+    graph.dijkstra(nodeList.get(0));
   }
 }
