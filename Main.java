@@ -23,5 +23,6 @@ public class Main {
 
     System.out.println("Printing Dijkstra from source A");
     graph.dijkstra(nodeList.get(0));
+    graph.bellmanFord(nodeList.get(0));
   }
 }
