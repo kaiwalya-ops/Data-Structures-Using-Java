@@ -72,4 +72,28 @@ public class WeightedGraph{
             curr.distance = Integer.MAX_VALUE;
         }
     }
+
+    // Floyd Warshall Algo for All pair Shortest path problem
+    public void floydWarshall(){
+        int size = this.nodeList.size();
+        int[][] V = new int[size][size];
+        for(int i=0; i<size; i++){
+            for(int j=0; j<size; j++){
+                if(i==j) V[i][j] = 0;
+                else if (nodeList.get(i).weightMap.containsKey(nodeList.get(j)))
+                    V[i][j] = nodeList.get(i).weightMap.get(nodeList.get(j));
+                else V[i][j] = Integer.MAX_VALUE / 10;
+            }
+        }
+
+        for(int k=0; k<size; k++) for(int i=0; i<size; i++) for(int j=0; j<size; j++)
+            if( V[i][j] > V[i][k] + V[k][j] ) V[i][j] = V[i][k] + V[k][j];
+        
+        for(int i=0; i<size; i++){
+            System.out.print("Printing distance list for the node : "+nodeList.get(i)+" :");
+            for(int j=0;j<size;j++)
+                System.out.print(" "+V[i][j]);
+            System.out.println();
+        }
+    }
 }
