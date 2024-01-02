@@ -2,19 +2,19 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
-    ArrayList<WeightedGraphNode> nodeList = new ArrayList<>();
-    nodeList.add(new WeightedGraphNode("A"));
-    nodeList.add(new WeightedGraphNode("B"));
-    nodeList.add(new WeightedGraphNode("C"));
-    nodeList.add(new WeightedGraphNode("D"));
-    WeightedGraph graph = new WeightedGraph(nodeList);
-    graph.addWeightedDirectedEdge(0, 1, 8);
-    graph.addWeightedDirectedEdge(0, 3, 1);
-    graph.addWeightedDirectedEdge(1, 2, 1);
-    graph.addWeightedDirectedEdge(2, 0, 4);
-    graph.addWeightedDirectedEdge(3, 1, 2);
-    graph.addWeightedDirectedEdge(3, 2, 9);
-
-    graph.floydWarshall();
+    Prim graph = new Prim();
+    graph.addNode("A");
+    graph.addNode("B");
+    graph.addNode("C");
+    graph.addNode("D");
+    graph.addNode("E");
+    graph.addEdge(0, 1, 5);
+    graph.addEdge(0, 2, 13);
+    graph.addEdge(0, 4, 15);
+    graph.addEdge(1, 2, 10);
+    graph.addEdge(1, 3, 8);
+    graph.addEdge(2, 3, 6);
+    graph.addEdge(2, 4, 20);
+    graph.primsAlgo(4);
   }
 }

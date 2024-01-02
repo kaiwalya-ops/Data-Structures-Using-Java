@@ -8,6 +8,7 @@ public class WeightedGraphNode implements Comparable<WeightedGraphNode>{
     public WeightedGraphNode parent;
     public int distance;
     public int index;
+    public DisjointSet set;
 
     public WeightedGraphNode(String name){
         this.name = name;
